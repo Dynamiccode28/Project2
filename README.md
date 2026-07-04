@@ -1,127 +1,171 @@
-# 🧠 Priority-Based Task Scheduling & Execution Monitoring System
+# Priority-Based Task Scheduling & Execution Monitoring System
 
-A Python-based simulation of how operating systems and backend services schedule, execute, and monitor tasks using **priority scheduling** and **runtime monitoring**.
+## Overview
 
-This project demonstrates core concepts such as:
-- Priority queues (min-heaps)
-- Task execution simulation
-- Runtime monitoring
-- Failure handling
-- Execution analytics
+The **Priority-Based Task Scheduling & Execution Monitoring System** is a Python-based simulation of how operating systems and backend services schedule, execute, and monitor tasks. The project demonstrates priority scheduling using a **min-heap priority queue**, runtime monitoring, exception handling, and execution analytics.
+
+Each task is scheduled according to its priority, executed sequentially, monitored for runtime performance, and analyzed upon completion.
 
 ---
 
-## 📌 Project Overview
+## Features
 
-The **Priority-Based Task Scheduling & Execution Monitoring System** simulates a task scheduler that executes tasks based on priority while monitoring their execution behavior.
-
-Each task is:
-- Scheduled using a **priority queue**
-- Executed in priority order
-- Monitored for slow execution
-- Handled safely if failures occur
-
----
-
-## ⚙️ High-Level Workflow
-
-1. **Task Definition**
-   Each task contains:
-   - `task_id` – unique identifier
-   - `priority` – lower value means higher priority
-   - `execution_time` – simulated runtime
-   - `failure_probability` *(optional)* – chance of failure during execution
-
-2. **Task Scheduling**
-   - Tasks are inserted into a **min-heap priority queue**
-   - Scheduler always picks the highest-priority task
-
-3. **Task Execution**
-   - Execution time is simulated using sleep
-   - Random failures may occur based on probability
-
-4. **Execution Monitoring**
-   - Tracks start & end time
-   - Detects slow tasks using predefined thresholds
-   - Handles runtime errors using exception handling
-
-5. **Execution Summary**
-   - Displays execution status of each task
-   - Shows runtime details and failures
+- Priority-based task scheduling using a min-heap
+- Simulated task execution
+- Runtime monitoring and execution time measurement
+- Slow task detection using configurable thresholds
+- Failure simulation with exception handling
+- Execution analytics and summary reporting
+- Modular and object-oriented implementation
 
 ---
 
-## 🏗️ System Architecture
+## Project Structure
 
-```
-Task Creator
-     ↓
-Priority Queue (Min Heap)
-     ↓
-Task Scheduler
-     ↓
-Execution Engine
-     ↓
-Runtime Monitor
-     ↓
-Execution Summary
+```text
+PriorityTaskScheduler/
+│
+├── main.py                 # Application entry point
+├── scheduler.py            # Task scheduling logic
+├── task.py                 # Task model
+├── monitor.py              # Runtime monitoring
+├── utils.py                # Helper functions
+└── README.md               # Project documentation
 ```
 
 ---
 
-## 🧪 Features
+## Task Model
 
-- ✅ Priority-based scheduling
-- ⏱ Runtime tracking
-- ⚠️ Slow task detection
-- ❌ Failure simulation & handling
-- 📊 Final execution report
+Each task contains the following attributes:
 
----
-
-## 🛠️ Technologies Used
-
-- Python 3
-- `heapq` for priority queue
-- `time` for execution simulation
-- `random` for failure simulation
-- Exception handling
+| Attribute | Description |
+|-----------|-------------|
+| `task_id` | Unique task identifier |
+| `priority` | Lower value indicates higher scheduling priority |
+| `execution_time` | Simulated execution duration |
+| `failure_probability` | Probability of runtime failure (optional) |
 
 ---
 
-## 🚀 How to Run
+## System Workflow
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd priority-task-scheduler
-   ```
+The application follows a priority-driven execution pipeline.
 
-2. Run the program:
-   ```bash
-   python main.py
-   ```
-
----
-
-## 📈 Sample Output
-
+```text
+        Task Creation
+              │
+              ▼
+ Priority Queue (Min Heap)
+              │
+              ▼
+      Task Scheduler
+              │
+              ▼
+     Execution Engine
+              │
+              ▼
+     Runtime Monitoring
+              │
+              ▼
+     Execution Summary
 ```
+
+---
+
+## Processing Pipeline
+
+1. Tasks are created with their execution attributes.
+2. Tasks are inserted into a priority queue implemented using a min-heap.
+3. The scheduler always selects the task with the highest priority.
+4. Task execution is simulated using configurable execution times.
+5. Runtime monitoring records execution duration and detects slow-running tasks.
+6. Runtime exceptions are handled gracefully to prevent scheduler interruption.
+7. A final execution summary is generated after all tasks have been processed.
+
+---
+
+## Technologies Used
+
+| Category | Technology |
+|----------|------------|
+| Language | Python 3 |
+| Data Structures | Heap (Priority Queue) |
+| Standard Library | `heapq`, `time`, `random` |
+| Programming Concepts | Object-Oriented Programming, Exception Handling |
+
+---
+
+## Build Concepts Demonstrated
+
+This project demonstrates several important software engineering concepts:
+
+- Priority Queue (Min Heap)
+- Task Scheduling
+- Runtime Monitoring
+- Execution Time Analysis
+- Failure Simulation
+- Exception Handling
+- Object-Oriented Design
+
+---
+
+## Running the Project
+
+### Clone the Repository
+
+```bash
+git clone <repository-url>
+
+cd priority-task-scheduler
+```
+
+### Run the Application
+
+```bash
+python main.py
+```
+
+---
+
+## Sample Output
+
+```text
 Executing Task T1 (Priority: 1)
 Task T1 completed in 2.01 seconds
 
 Executing Task T3 (Priority: 2)
-⚠ Task T3 marked as slow
+Task T3 exceeded the execution threshold.
 
 Executing Task T2 (Priority: 3)
-❌ Task T2 failed due to runtime error
+Task T2 failed due to a simulated runtime error.
 
-===== Execution Summary =====
-Task T1 : SUCCESS | Time: 2.01s
-Task T3 : SLOW    | Time: 4.12s
-Task T2 : FAILED
+========== Execution Summary ==========
+
+Task T1
+Status : SUCCESS
+Execution Time : 2.01 seconds
+
+Task T3
+Status : SLOW
+Execution Time : 4.12 seconds
+
+Task T2
+Status : FAILED
 ```
 
 ---
 
+## Learning Outcomes
+
+This project demonstrates practical understanding of:
+
+- Priority-based scheduling algorithms
+- Heap-based data structures
+- Object-oriented programming in Python
+- Runtime monitoring techniques
+- Exception handling
+- Performance analysis
+
+---
 
