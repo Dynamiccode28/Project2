@@ -115,9 +115,7 @@ This project demonstrates several important software engineering concepts:
 ### Clone the Repository
 
 ```bash
-git clone <repository-url>
-
-cd priority-task-scheduler
+git clone https://github.com/Dynamiccode28/Project2.git
 ```
 
 ### Run the Application
